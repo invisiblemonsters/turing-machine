@@ -1,0 +1,53 @@
+{
+  "name": "busy-beaver-3",
+  "description": "A three-state, two-symbol busy beaver. Start it on a blank tape: it drops six 1s and halts in 14 steps.",
+  "blank": "_",
+  "start": "A",
+  "halt": [
+    "H"
+  ],
+  "transitions": [
+    {
+      "state": "A",
+      "read": "_",
+      "write": "1",
+      "move": "R",
+      "next": "B"
+    },
+    {
+      "state": "A",
+      "read": "1",
+      "write": "1",
+      "move": "R",
+      "next": "H"
+    },
+    {
+      "state": "B",
+      "read": "_",
+      "write": "_",
+      "move": "R",
+      "next": "C"
+    },
+    {
+      "state": "B",
+      "read": "1",
+      "write": "1",
+      "move": "R",
+      "next": "B"
+    },
+    {
+      "state": "C",
+      "read": "_",
+      "write": "1",
+      "move": "L",
+      "next": "C"
+    },
+    {
+      "state": "C",
+      "read": "1",
+      "write": "1",
+      "move": "L",
+      "next": "A"
+    }
+  ]
+}

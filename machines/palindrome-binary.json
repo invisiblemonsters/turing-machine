@@ -1,0 +1,222 @@
+{
+  "name": "palindrome-binary",
+  "description": "Accept or reject a binary string depending on whether it reads the same backwards. Halts in state 'accept' or 'reject'.",
+  "blank": "_",
+  "start": "start",
+  "halt": [
+    "accept",
+    "reject"
+  ],
+  "transitions": [
+    {
+      "state": "start",
+      "read": "0",
+      "write": "X",
+      "move": "R",
+      "next": "seen0"
+    },
+    {
+      "state": "start",
+      "read": "1",
+      "write": "Y",
+      "move": "R",
+      "next": "seen1"
+    },
+    {
+      "state": "start",
+      "read": "_",
+      "write": "_",
+      "move": "N",
+      "next": "accept"
+    },
+    {
+      "state": "start",
+      "read": "X",
+      "write": "X",
+      "move": "R",
+      "next": "start"
+    },
+    {
+      "state": "start",
+      "read": "Y",
+      "write": "Y",
+      "move": "R",
+      "next": "start"
+    },
+    {
+      "state": "seen0",
+      "read": "0",
+      "write": "0",
+      "move": "R",
+      "next": "seen0"
+    },
+    {
+      "state": "seen0",
+      "read": "1",
+      "write": "1",
+      "move": "R",
+      "next": "seen0"
+    },
+    {
+      "state": "seen0",
+      "read": "X",
+      "write": "X",
+      "move": "R",
+      "next": "seen0"
+    },
+    {
+      "state": "seen0",
+      "read": "Y",
+      "write": "Y",
+      "move": "R",
+      "next": "seen0"
+    },
+    {
+      "state": "seen1",
+      "read": "0",
+      "write": "0",
+      "move": "R",
+      "next": "seen1"
+    },
+    {
+      "state": "seen1",
+      "read": "1",
+      "write": "1",
+      "move": "R",
+      "next": "seen1"
+    },
+    {
+      "state": "seen1",
+      "read": "X",
+      "write": "X",
+      "move": "R",
+      "next": "seen1"
+    },
+    {
+      "state": "seen1",
+      "read": "Y",
+      "write": "Y",
+      "move": "R",
+      "next": "seen1"
+    },
+    {
+      "state": "seen0",
+      "read": "_",
+      "write": "_",
+      "move": "L",
+      "next": "end0"
+    },
+    {
+      "state": "seen1",
+      "read": "_",
+      "write": "_",
+      "move": "L",
+      "next": "end1"
+    },
+    {
+      "state": "end0",
+      "read": "X",
+      "write": "X",
+      "move": "L",
+      "next": "end0"
+    },
+    {
+      "state": "end0",
+      "read": "Y",
+      "write": "Y",
+      "move": "L",
+      "next": "end0"
+    },
+    {
+      "state": "end1",
+      "read": "X",
+      "write": "X",
+      "move": "L",
+      "next": "end1"
+    },
+    {
+      "state": "end1",
+      "read": "Y",
+      "write": "Y",
+      "move": "L",
+      "next": "end1"
+    },
+    {
+      "state": "end0",
+      "read": "0",
+      "write": "X",
+      "move": "L",
+      "next": "rewind"
+    },
+    {
+      "state": "end0",
+      "read": "1",
+      "write": "1",
+      "move": "N",
+      "next": "reject"
+    },
+    {
+      "state": "end1",
+      "read": "1",
+      "write": "Y",
+      "move": "L",
+      "next": "rewind"
+    },
+    {
+      "state": "end1",
+      "read": "0",
+      "write": "0",
+      "move": "N",
+      "next": "reject"
+    },
+    {
+      "state": "end0",
+      "read": "_",
+      "write": "_",
+      "move": "N",
+      "next": "accept"
+    },
+    {
+      "state": "end1",
+      "read": "_",
+      "write": "_",
+      "move": "N",
+      "next": "accept"
+    },
+    {
+      "state": "rewind",
+      "read": "0",
+      "write": "0",
+      "move": "L",
+      "next": "rewind"
+    },
+    {
+      "state": "rewind",
+      "read": "1",
+      "write": "1",
+      "move": "L",
+      "next": "rewind"
+    },
+    {
+      "state": "rewind",
+      "read": "X",
+      "write": "X",
+      "move": "L",
+      "next": "rewind"
+    },
+    {
+      "state": "rewind",
+      "read": "Y",
+      "write": "Y",
+      "move": "L",
+      "next": "rewind"
+    },
+    {
+      "state": "rewind",
+      "read": "_",
+      "write": "_",
+      "move": "R",
+      "next": "start"
+    }
+  ]
+}

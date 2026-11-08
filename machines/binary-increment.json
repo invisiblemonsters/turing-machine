@@ -1,0 +1,53 @@
+{
+  "name": "binary-increment",
+  "description": "Add 1 to a binary number written on the tape.",
+  "blank": "_",
+  "start": "scan",
+  "halt": [
+    "halt"
+  ],
+  "transitions": [
+    {
+      "state": "scan",
+      "read": "0",
+      "write": "0",
+      "move": "R",
+      "next": "scan"
+    },
+    {
+      "state": "scan",
+      "read": "1",
+      "write": "1",
+      "move": "R",
+      "next": "scan"
+    },
+    {
+      "state": "scan",
+      "read": "_",
+      "write": "_",
+      "move": "L",
+      "next": "carry"
+    },
+    {
+      "state": "carry",
+      "read": "1",
+      "write": "0",
+      "move": "L",
+      "next": "carry"
+    },
+    {
+      "state": "carry",
+      "read": "0",
+      "write": "1",
+      "move": "N",
+      "next": "halt"
+    },
+    {
+      "state": "carry",
+      "read": "_",
+      "write": "1",
+      "move": "N",
+      "next": "halt"
+    }
+  ]
+}
